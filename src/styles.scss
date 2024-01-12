@@ -150,6 +150,11 @@ h3 {
   flex-direction: column;
   gap: 16px;
 
+  .highlighted {
+    display: inline;
+    color: $button_regular;
+  }
+
   .subtext {
     margin-top: 5px;
     font-size: 14px;
@@ -270,6 +275,47 @@ h3 {
       .negative {
         color: #F52D30;
       }
+    }
+  }
+}
+
+.preview_container {
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .preview_card {
+    border-radius: 5px;
+    background-color: $background_secondary;
+
+    .preview_segment {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .preview_header {
+        display: block;
+        width: 70%;
+        font-size: 16px;
+        color: $text_primary;
+      }
+
+      .preview_statistics {
+        display: block;
+        font-size: 16px;
+        color: $text_secondary;
+
+        .highlighted {
+          color: $button_regular;
+        }
+      }
+    }
+    
+
+    .first {
+      border-bottom: 2px solid #E5E5E5;
     }
   }
 }

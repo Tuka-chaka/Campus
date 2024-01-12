@@ -3,10 +3,11 @@ import Header from '../components/Header'
 import SchoolsTable from '../components/SchoolsTable'
 import Button from '../components/ui/Button'
 import { useNavigate } from "react-router-dom";
-import VisitsBarGraph from '../components/graphs/VisitsBarGraph'
 import ProgramsPreview from '../components/ProgramsPreview'
 import LineGraph from '../components/graphs/LineGraph'
 import Navbar from '../components/Navbar';
+import formatThousands from '../utils/ThousandsFormatter';
+import BarGraph from '../components/graphs/BarGraph';
 
 
 const Dashboard = ({data}) => {
@@ -29,7 +30,7 @@ const Dashboard = ({data}) => {
       <div className='card'>
         <h3>Участников “ИС Кампус”</h3>
         <div className='card_info bordered'>
-          <h1>250 000 студентов</h1>
+          <h1>{`${formatThousands(data.participants.slice(-1)[0].amount)} студентов`}</h1>
         </div>
         <LineGraph data={data.participants}/>
       </div>
@@ -46,12 +47,13 @@ const Dashboard = ({data}) => {
         <div className='card_info bordered'>
           <span>Кол-во уникальных посещений приложения и сайта</span>
         </div>
-        <VisitsBarGraph data ={data.participants}/>
+        <span>Всего посетителей <span className='highlighted'>{formatThousands(data.participants.slice(-1)[0].amount + data.part2.slice(-1)[0].amount)}</span></span>
+        <BarGraph data={data.participants} secondDataset={data.part2}/>
         <Button text='Перейти в раздел' action={() => handleClick('/visits')}/>
       </div>
       <div className='card'>
         <h3>Программы фонда</h3>
-        <ProgramsPreview/>
+        <ProgramsPreview data={data}/>
         <Button text='Перейти в раздел' action={() => handleClick('/programs')}/>
       </div>
       <Navbar page='dashboard'/>

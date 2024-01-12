@@ -82,6 +82,48 @@
           "month": "Jun",
           "amount": 173991
         }
+    ],
+    "part3" : [
+      {
+          "month": "Sep",
+        "amount": 95252
+      },
+      {
+          "month": "Oct",
+        "amount": 175355
+      },
+      {
+          "month": "Nov",
+        "amount": 174736
+      },
+      {
+          "month": "Dec",
+        "amount": 147155
+      },
+      {
+          "month": "Jan",
+        "amount": 166104
+      },
+      {
+          "month": "Feb",
+        "amount": 180049
+      },
+      {
+          "month": "Mar",
+        "amount": 114421
+      },
+      {
+        "month": "Apr",
+        "amount": 173991
+      },
+      {
+        "month": "May",
+        "amount": 114421
+      },
+      {
+        "month": "Jun",
+        "amount": 154572
+      }
 ],
       "schools": [
         {
@@ -143,6 +185,24 @@
           "name" : "РГППУ4",
           "students" : ["6300", "6200"],
           "applicants" : ["3000", "5000"]
+        }
+],
+      "majors": [
+        {
+          "name" : "Frontend-разработчик",
+          "students" : ["12500", "13000"]
+        },
+        {
+          "name" : "Backend-разработчик",
+          "students" : ["10500", "10800"]
+        },
+        {
+          "name" : "Проектировщик интерфейсов",
+          "students" : ["6300", "6200"]
+        },
+        {
+          "name" : "Аналитик",
+          "students" : ["4500", "5200"]
         }
       ]
 }

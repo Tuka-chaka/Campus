@@ -1,5 +1,5 @@
 import './styles.scss';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
@@ -16,12 +16,6 @@ function App() {
         <Route path='/schools' element={<Schools data={data}/>} />
         <Route path='/visits' element={<Visits data={data}/>} />
       </Routes>
-      {/* <div className='navbar'>
-        <Link to='/'>Dashboard</Link>
-        <Link to='/schools'>Schools</Link>
-        <Link to='/visits'>Visits</Link>
-        <Link to='/programs'>Programs</Link>
-      </div> */}
     </div>
   );
 }

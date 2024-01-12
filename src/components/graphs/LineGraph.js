@@ -23,6 +23,14 @@ const LineGraph = ({data}) => {
         <Line
             data={chartData}
             options={{
+            scales: {
+                y: {
+                    min: 0,
+                    ticks: {
+                        stepSize: 50000
+                    }
+                }
+            },
             plugins: {
                 legend: {
                 display: false

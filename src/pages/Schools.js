@@ -3,10 +3,10 @@ import Header from '../components/Header'
 import Switch from '../components/ui/Switch'
 import GraphInfo from '../components/GraphInfo'
 import SchoolsTable from '../components/SchoolsTable'
-import MajorsTable from '../components/MajorsTable'
 import BarGraph from '../components/graphs/BarGraph'
 import Navbar from '../components/Navbar'
 import findDifference from '../utils/DifferenceFinder'
+import formatThousands from '../utils/ThousandsFormatter'
 
 const Schools = ({data}) => {
 
@@ -30,20 +30,20 @@ const Schools = ({data}) => {
         {showApplications ? 
         <>
         <h3>Кол-во поданных заявлений на участие в программе “Кампус”</h3>
-        <GraphInfo suptext='в среднем' count={data.part2.slice(-1)[0].amount} sidetext={`${applicantStats.percentage}% с прошлого месяца`} isGreater={applicantStats.isGreater} showArrow/>
+        <GraphInfo suptext='в среднем' count={formatThousands(data.part2.slice(-1)[0].amount)} sidetext={`${applicantStats.percentage}% с прошлого месяца`} isGreater={applicantStats.isGreater} showArrow/>
         <BarGraph data={data.part2}/>
         <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Отличники программы' type='applicants'/>
         </>
         :
         <><h3>Кол-во отличников программы “Кампус”</h3>
-        <GraphInfo suptext='в среднем' count={data.participants.slice(-1)[0].amount} sidetext={`${excellenceStats.percentage}% с прошлого месяца`} isGreater={excellenceStats.isGreater} showArrow/>
+        <GraphInfo suptext='в среднем' count={formatThousands(data.participants.slice(-1)[0].amount)} sidetext={`${excellenceStats.percentage}% с прошлого месяца`} isGreater={excellenceStats.isGreater} showArrow/>
         <BarGraph data={data.participants}/>
         <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Поданные заявления' type='students'/>
         </>}
       </div>
       <div className='card'>
         <h3>Статистика по специальностям</h3>
-        <MajorsTable/>
+        <SchoolsTable data={data.majors.sort((a,b) => b.students[1] - a.students[1])} text='Кол-во участников' type='students' title='Специальность'/>
       </div>
       <Navbar page='schools'/>
       <div className='spacer'/>
