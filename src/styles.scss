@@ -63,11 +63,18 @@ h3 {
 
 .switch {
   display: flex;
+  background-color: $background_secondary;
+  border-radius: $button-border;
+  border: 1px solid $background_secondary;
   
   .switch_option {
+    font-size: 16px;
+    color: $text_primary;
     display: block;
     width: 50%;
+    height: 34px;
     text-align: center;
+    padding-top: 9px;
   }
 }
 
@@ -78,6 +85,7 @@ h3 {
   padding: 7.5px 10px 7.5px 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown_container {
@@ -316,6 +324,64 @@ h3 {
 
     .first {
       border-bottom: 2px solid #E5E5E5;
+    }
+  }
+}
+
+.pages_chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .bar_container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .bar_header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+
+      .page_name {
+        display: block;
+        font-size: 16px;
+        color: $text_primary;
+      }
+      .page_time {
+        display: block;
+        font-size: 14px;
+        color: $text_secondary;
+      }
+    }
+
+    .bar{
+      display: flex;
+      flex-direction: row;
+      height: 6px;
+      border-radius: 3px;
+      background-color: $background_secondary;
+
+      .bar_filler {
+        border-radius: 3px 0 0 3px;
+        height: 6px;
+        background-color: $button_regular;
+      }
+
+      .vertical {
+        width: 0px;
+        height: 10px;
+        border-left: 1px solid $button_regular;
+      }
+    }
+
+    .percentage {
+      display: block;
+      margin-left: 10px;
+      text-align: right;
+      font-size: 10px;
+      color: $button_regular;
     }
   }
 }

@@ -22,11 +22,12 @@ const Schools = ({data}) => {
   useEffect(()=>{console.log(excellenceStats)}, [excellenceStats])
 
   const [showApplications, setShowApplications] = useState(false)
+
   return (
     <div className='layout'>
       <Header text = 'ВУЗы' subtext='Перечень ВУЗов, участвующих в проекте “Кампус”'/>
       <div className='card'>
-        <Switch action={() => setShowApplications(!showApplications)}/>
+        <Switch action={() => setShowApplications(!showApplications)} showApplications={showApplications}/>
         {showApplications ? 
         <>
         <h3>Кол-во поданных заявлений на участие в программе “Кампус”</h3>

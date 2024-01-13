@@ -204,5 +204,32 @@
           "name" : "Аналитик",
           "students" : ["4500", "5200"]
         }
+      ],
+      "pages" : [
+        {
+          "name" : "page1",
+          "time" : 45,
+          "percentage" : 30
+        },
+        {
+          "name" : "page2",
+          "time" : 55,
+          "percentage" : 50
+        },
+        {
+          "name" : "page3",
+          "time" : 30,
+          "percentage" : 25
+        },
+        {
+          "name" : "page4",
+          "time" : 10,
+          "percentage" : 8
+        },
+        {
+          "name" : "page5",
+          "time" : 27,
+          "percentage" : 15
+        }
       ]
 }

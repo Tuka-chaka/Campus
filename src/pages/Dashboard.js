@@ -26,7 +26,7 @@ const Dashboard = ({data}) => {
 
   return (
     <div className='layout'>
-      <Header text = 'Главная'/>
+      <Header text = 'Главная' data={data}/>
       <div className='card'>
         <h3>Участников “ИС Кампус”</h3>
         <div className='card_info bordered'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Dropdown from '../components/ui/Dropdown'
 import GraphInfo from '../components/GraphInfo'
@@ -7,7 +7,13 @@ import PagesBarChart from '../components/graphs/PagesBarChart'
 import Navbar from '../components/Navbar'
 
 const Visits = ({data}) => {
-  console.log(data)
+
+  const [pagesStatistics, setPagesStatistics] = useState(data.pages.sort((a, b) => b.time - a.time))
+
+  useEffect(() => {
+    setPagesStatistics(data.pages.sort((a, b) => b.time - a.time))
+  }, [data])
+
   return (
     <div className='layout'>
       <Header text = 'Посещаемость' subtext='Информация о посещаемости и активности пользователей'/>
@@ -21,12 +27,12 @@ const Visits = ({data}) => {
         <LineGraph data={data.participants}/>
         <div className='bordered'/>
         <h3>Часто просматриваемые разделы</h3>
-        <GraphInfo suptext='часто просматриваемый раздел' count='Раздел 1'/>
-        <PagesBarChart/>
+        <GraphInfo suptext='часто просматриваемый раздел' count={pagesStatistics[0].name}/>
+        <PagesBarChart data={pagesStatistics}/>
         <div className='bordered'/>
         <h3>Пользователи по регионам</h3>
         <GraphInfo suptext='всего' count='500 000' sidetext='63% с прошлого месяца'/>
-        <PagesBarChart/>
+        <PagesBarChart data={pagesStatistics}/>
       </div>
       <Navbar page='visits'/>
       <div className='spacer'/>
