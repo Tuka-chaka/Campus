@@ -25,6 +25,7 @@ const Dashboard = ({data}) => {
   }, [data])
 
   return (
+    <>
     <div className='layout'>
       <Header text = 'Главная' data={data}/>
       <div className='card'>
@@ -56,9 +57,10 @@ const Dashboard = ({data}) => {
         <ProgramsPreview data={data}/>
         <Button text='Перейти в раздел' action={() => handleClick('/programs')}/>
       </div>
-      <Navbar page='dashboard'/>
       <div className='spacer'/>
     </div>
+    <Navbar page='dashboard'/>
+    </>
   )
 }
 

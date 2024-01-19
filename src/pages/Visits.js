@@ -21,11 +21,11 @@ const Visits = ({data}) => {
   }, [deviceType])
 
   return (
-    <div className='layout'>
+    <>
+    <div className='layout layout_centered'>
       <Header text = 'Посещаемость' subtext='Информация о посещаемости и активности пользователей'/>
       <div className='card'>
         <div className='dropdown_container'>
-          {/* <Dropdown text='Текущий месяц'/> */}
           <Dropdown options={['моб. прил.', 'веб', 'всего']} value={deviceType} action={setDeviceType} width={'141px'}/>
         </div>
         <h3>Посещения</h3>
@@ -40,9 +40,10 @@ const Visits = ({data}) => {
         <GraphInfo suptext='всего' count='500 000' sidetext='63% с прошлого месяца'/>
         <PagesBarChart data={pagesStatistics}/>
       </div>
-      <Navbar page='visits'/>
       <div className='spacer'/>
     </div>
+    <Navbar page='visits'/>
+    </>
   )
 }
 

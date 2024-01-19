@@ -24,6 +24,7 @@ const Schools = ({data}) => {
   const [showApplications, setShowApplications] = useState(false)
 
   return (
+    <>
     <div className='layout'>
       <Header text = 'ВУЗы' subtext='Перечень ВУЗов, участвующих в проекте “Кампус”'/>
       <div className='card'>
@@ -46,9 +47,10 @@ const Schools = ({data}) => {
         <h3>Статистика по специальностям</h3>
         <SchoolsTable data={data.majors.sort((a,b) => b.students[1] - a.students[1])} text='Кол-во участников' type='students' title='Специальность'/>
       </div>
-      <Navbar page='schools'/>
       <div className='spacer'/>
     </div>
+    <Navbar page='schools'/>
+    </>
   )
 }
 

@@ -9,6 +9,7 @@ const Programs = ({data}) => {
 
   console.log(data)
   return (
+    <>
     <div className='layout'>
       <Header text = 'Программы фонда' subtext='Обзор информации о различных программ, реализуемых фондом'/>
       <div className='card'>
@@ -26,9 +27,10 @@ const Programs = ({data}) => {
         <GraphInfo suptext='всего' count={formatThousands(data.part3.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
         <LineGraph data={data.part3}/>
       </div>
-      <Navbar page='programs'/>
       <div className='spacer'/>
     </div>
+    <Navbar page='programs'/>
+    </>
   )
 }
 
