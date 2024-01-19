@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PagesBarChart = ({data}) => {
-  console.log(data)
   return (
     <div className='pages_chart'>
       {data ? data.map((page) => 

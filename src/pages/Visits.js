@@ -14,13 +14,19 @@ const Visits = ({data}) => {
     setPagesStatistics(data.pages.sort((a, b) => b.time - a.time))
   }, [data])
 
+  const [deviceType, setDeviceType] = useState('всего')
+
+  useEffect(() => {
+    console.log(deviceType)
+  }, [deviceType])
+
   return (
     <div className='layout'>
       <Header text = 'Посещаемость' subtext='Информация о посещаемости и активности пользователей'/>
       <div className='card'>
         <div className='dropdown_container'>
-          <Dropdown text='Текущий месяц'/>
-          <Dropdown text='моб. прил.'/>
+          {/* <Dropdown text='Текущий месяц'/> */}
+          <Dropdown options={['моб. прил.', 'веб', 'всего']} value={deviceType} action={setDeviceType} width={'141px'}/>
         </div>
         <h3>Посещения</h3>
         <GraphInfo suptext='в среднем' count='3867' sidetext='посетителей' subtext='01 - 31 апр. 2023г.'/>

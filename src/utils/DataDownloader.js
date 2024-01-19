@@ -3,7 +3,7 @@ function downloadData (data) {
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.download = "user-info.json";
+    link.download = "Отчёт.xlsx";
     link.href = url;
     link.click();
 }

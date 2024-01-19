@@ -33,13 +33,13 @@ const Schools = ({data}) => {
         <h3>Кол-во поданных заявлений на участие в программе “Кампус”</h3>
         <GraphInfo suptext='в среднем' count={formatThousands(data.part2.slice(-1)[0].amount)} sidetext={`${applicantStats.percentage}% с прошлого месяца`} isGreater={applicantStats.isGreater} showArrow/>
         <BarGraph data={data.part2}/>
-        <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Отличники программы' type='applicants'/>
+        <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Поданные заявления' type='applicants'/>
         </>
         :
         <><h3>Кол-во отличников программы “Кампус”</h3>
         <GraphInfo suptext='в среднем' count={formatThousands(data.participants.slice(-1)[0].amount)} sidetext={`${excellenceStats.percentage}% с прошлого месяца`} isGreater={excellenceStats.isGreater} showArrow/>
         <BarGraph data={data.participants}/>
-        <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Поданные заявления' type='students'/>
+        <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Отличники программы' type='students'/>
         </>}
       </div>
       <div className='card'>
