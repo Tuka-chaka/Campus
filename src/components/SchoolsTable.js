@@ -3,6 +3,7 @@ import findDifference from '../utils/DifferenceFinder'
 import formatThousands from '../utils/ThousandsFormatter'
 
 const SchoolsTable = ({data, text, type, title = 'ВУЗ'}) => {
+  console.log(type)
 
   const [differences, setDifferences] = useState({})
 
@@ -27,7 +28,7 @@ const SchoolsTable = ({data, text, type, title = 'ВУЗ'}) => {
           <span>{school.name}</span>
         </div>
           <div className='coupler centered'>
-        <span>{formatThousands(school.students[1])}</span>
+        <span>{formatThousands(school[type][1])}</span>
           <span className={differences[school.name].isGreater ? 'difference' : 'difference negative'}>{`+${differences[school.name].difference}`}</span>
           </div>
         </div>) : <></>}

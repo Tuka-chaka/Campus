@@ -11,6 +11,7 @@ import BarGraph from '../components/graphs/BarGraph';
 
 
 const Dashboard = ({data}) => {
+  console.log(data.applications)
 
   const navigate = useNavigate();
 
@@ -48,8 +49,8 @@ const Dashboard = ({data}) => {
         <div className='card_info bordered'>
           <span>Кол-во уникальных посещений приложения и сайта</span>
         </div>
-        <span>Всего посетителей <span className='highlighted'>{formatThousands(data.participants.slice(-1)[0].amount + data.part2.slice(-1)[0].amount)}</span></span>
-        <BarGraph data={data.participants} secondDataset={data.part2}/>
+        <span>Всего посетителей <span className='highlighted'>{formatThousands(data.attendanceWeb.slice(-1)[0].amount + data.attendanceMobile.slice(-1)[0].amount)}</span></span>
+        <BarGraph data={data.attendanceWeb} secondDataset={data.attendanceMobile}/>
         <Button text='Перейти в раздел' action={() => handleClick('/visits')}/>
       </div>
       <div className='card'>

@@ -4,7 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
 import Visits from './pages/Visits';
-import * as data from './mockup.json';
+import * as data from './realdata.json';
 
 function App() {
 

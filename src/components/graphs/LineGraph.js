@@ -10,7 +10,7 @@ const LineGraph = ({data}) => {
 
     useEffect(() => {
         setChartData({labels: data.map((data) => data.month).slice(-6), datasets: [{
-          label: 'label',
+          label: 'Количество',
           data: data.map((data) => data.amount).slice(-6),
           borderColor: '#F52D30',
           backgroundColor: '#F52D30',

@@ -14,18 +14,18 @@ const Programs = ({data}) => {
       <Header text = 'Программы фонда' subtext='Обзор информации о различных программ, реализуемых фондом'/>
       <div className='card'>
         <h3>Стипендиальная программа фонда</h3>
-        <GraphInfo suptext='всего' count={formatThousands(data.participants.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
-        <LineGraph data={data.participants}/>
+        <GraphInfo suptext='всего' count={formatThousands(data.fundStipend.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
+        <LineGraph data={data.fundStipend}/>
       </div>
       <div className='card'>
         <h3>Льготное кредитование</h3>
-        <GraphInfo suptext='всего' count={formatThousands(data.part2.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
-        <LineGraph data={data.part2}/>
+        <GraphInfo suptext='всего' count={formatThousands(data.fundPrivilege.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
+        <LineGraph data={data.fundPrivilege}/>
       </div>
       <div className='card'>
         <h3>Бонусная программа фонда</h3>
-        <GraphInfo suptext='всего' count={formatThousands(data.part3.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
-        <LineGraph data={data.part3}/>
+        <GraphInfo suptext='всего' count={formatThousands(data.fundBonus.slice(-1)[0].amount)} sidetext='студентов получают данную стипендию' subtext='01 - 31 апр. 2023г.'/>
+        <LineGraph data={data.fundBonus}/>
       </div>
       <div className='spacer'/>
     </div>

@@ -20,7 +20,7 @@ const BarGraph = ({data, secondDataset = null}) => {
         }]}
         :
         {labels: data.map((data) => data.month).slice(-10), datasets: [{
-          label: 'количество',
+          label: 'Количество',
           data: data.map((data) => data.amount).slice(-10),
           borderColor: '#F52D30',
           backgroundColor: '#F52D30',

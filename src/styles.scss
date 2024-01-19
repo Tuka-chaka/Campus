@@ -134,7 +134,7 @@ h3 {
   flex-direction: column;
   gap: 10px;
   @media screen and (orientation: landscape) {
-    margin-left: 110px;
+    margin-left: 90px;
     margin-right: 10px;
     flex-direction: row;
     flex-wrap: wrap;
@@ -165,7 +165,7 @@ h3 {
     justify-content: space-around;
     padding: 8px;
     flex-direction: column;
-    width: 100px;
+    width: 80px;
   }
 
   .navbar_button {
