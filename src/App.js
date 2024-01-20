@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Programs from './pages/Programs';
 import Schools from './pages/Schools';
 import Visits from './pages/Visits';
+import * as backupData from './apianswer.json'
 
 function App() {
 
@@ -15,7 +16,10 @@ function App() {
       method: 'GET'
     })
   .then(response => response.json())
-  .then(response => setData(response));
+  .then(response => setData(response))
+  .catch(err => {
+    setData(backupData)
+  });
   },[])
 
   return (
