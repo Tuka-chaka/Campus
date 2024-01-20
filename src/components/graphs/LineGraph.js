@@ -26,9 +26,10 @@ const LineGraph = ({data}) => {
             scales: {
                 y: {
                     min: 0,
-                    ticks: {
-                        stepSize: 50000
-                    }
+                    grace: '20%',
+                    // ticks: {
+                    //     stepSize: 5000
+                    // }
                 }
             },
             plugins: {

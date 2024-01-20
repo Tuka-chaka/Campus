@@ -8,7 +8,7 @@ const PagesBarChart = ({data, type}) => {
       <div className='bar_container' key={page.name}>
         <div className='bar_header'>
           <span className='page_name'>{page.name}</span>
-          <span className='page_time'>{type === 'pages' ? `${Math.floor(page.time / 60)} ч. ${page.time % 60} мин.` : formatThousands(page.users)}</span>
+          <span className='page_time'>{type === 'pages' ? `${Math.floor(page.time / 60)} ч. ${page.time % 60} мин.` : `${formatThousands(page.users[1])} пользователей`}</span>
         </div>
         <div className='bar'>
           <div className='bar_filler' style={{width: `${page.percentage}%`}}></div>

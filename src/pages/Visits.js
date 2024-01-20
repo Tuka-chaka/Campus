@@ -6,8 +6,15 @@ import LineGraph from '../components/graphs/LineGraph'
 import PagesBarChart from '../components/graphs/PagesBarChart'
 import Navbar from '../components/Navbar'
 import formatThousands from '../utils/ThousandsFormatter'
+import findDifference from '../utils/DifferenceFinder'
 
 const Visits = ({data}) => {
+
+  const [regionDifference, setRegionDifference] = useState({})
+
+  useEffect(() => {
+    setRegionDifference(findDifference(regionsStatistics.reduce((result, item) => result + item.users[0], 0), regionsStatistics.reduce((result, item) => result + item.users[1], 0)))
+  }, [data])
 
   const [pagesStatistics, setPagesStatistics] = useState(data.pages.sort((a, b) => b.time - a.time))
   const [regionsStatistics, setRegionsStatistics] = useState(data.regions.sort((a, b) => b.users - a.users))
@@ -17,7 +24,7 @@ const Visits = ({data}) => {
   }, [data])
 
   useEffect(() => {
-    setRegionsStatistics(data.regions.sort((a, b) => b.users - a.users))
+    setRegionsStatistics(data.regions.sort((a, b) => b.users[1] - a.users[1]))
   }, [data])
 
   const [graphData, setGraphData] = useState(data.attendanceMobile)
@@ -49,7 +56,7 @@ const Visits = ({data}) => {
           <Dropdown options={['моб. прил.', 'веб', 'всего']} value={deviceType} action={setDeviceType} width={'141px'}/>
         </div>
         <h3>Посещения</h3>
-        <GraphInfo suptext='в среднем' count={formatThousands(graphData.slice(-1)[0].amount)} sidetext='посетителей' subtext='01 - 31 апр. 2023г.'/>
+        <GraphInfo suptext='всего' count={formatThousands(graphData.slice(-1)[0].amount)} sidetext='посетителей'/>
         <LineGraph data={graphData}/>
       </div>
       <div className='card'>
@@ -58,7 +65,7 @@ const Visits = ({data}) => {
         <PagesBarChart data={pagesStatistics} type='pages'/>
         <div className='bordered'/>
         <h3>Пользователи по регионам</h3>
-        <GraphInfo suptext='всего' count={formatThousands(regionsStatistics.reduce((result, item) => result + item.users, 0))} sidetext='12% с прошлого месяца' isGreater showArrow/>
+        <GraphInfo suptext='всего' count={formatThousands(regionsStatistics.reduce((result, item) => result + item.users[1], 0))} sidetext={`${regionDifference.percentage}% с прошлого месяца`} isGreater={regionDifference.isGreater} showArrow/>
         <PagesBarChart data={regionsStatistics} type='regions'/>
       </div>
       <div className='spacer'/>
