@@ -7,8 +7,7 @@ import formatThousands from '../utils/ThousandsFormatter'
 
 const Programs = ({data}) => {
 
-  console.log(data)
-  return (
+  return (  data ? 
     <>
     <div className='layout'>
       <Header text = 'Программы фонда' subtext='Обзор информации о различных программ, реализуемых фондом'/>
@@ -31,7 +30,7 @@ const Programs = ({data}) => {
     </div>
     <Navbar page='programs'/>
     </>
-  )
+  : <></>)
 }
 
 export default Programs

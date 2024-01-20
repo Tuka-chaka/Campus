@@ -26,11 +26,6 @@ const BarGraph = ({data, secondDataset = null}) => {
           backgroundColor: '#F52D30',
         }]})
       }, [data, secondDataset])
-
-      useEffect(() => {
-        console.log(chartData)
-      }, [chartData])
-  
   
     return (
         <div className='graph_container'>

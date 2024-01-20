@@ -3,7 +3,6 @@ import findDifference from '../utils/DifferenceFinder'
 import formatThousands from '../utils/ThousandsFormatter'
 
 const SchoolsTable = ({data, text, type, title = 'ВУЗ'}) => {
-  console.log(type)
 
   const [differences, setDifferences] = useState({})
 

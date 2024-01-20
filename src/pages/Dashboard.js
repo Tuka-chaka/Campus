@@ -11,8 +11,7 @@ import BarGraph from '../components/graphs/BarGraph';
 
 
 const Dashboard = ({data}) => {
-  console.log(data.applications)
-
+  
   const navigate = useNavigate();
 
   function handleClick(page) {
@@ -22,10 +21,12 @@ const Dashboard = ({data}) => {
   const [tableData, setTableData] = useState([])
 
   useEffect(() => {
+    if (data) {
     setTableData(data.schools.sort((a,b) => b.students[1] - a.students[1]).slice(0,5))
+    }
   }, [data])
 
-  return (
+  return ( data ? 
     <>
     <div className='layout'>
       <Header text = 'Главная' data={data}/>
@@ -62,7 +63,7 @@ const Dashboard = ({data}) => {
     </div>
     <Navbar page='dashboard'/>
     </>
-  )
+  : <></>)
 }
 
 export default Dashboard

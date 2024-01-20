@@ -14,13 +14,15 @@ const Schools = ({data}) => {
   const [excellenceStats, setexcellenceStats] = useState({})
 
   useEffect(() => {
+    if (data) {
     setApplicantStats(findDifference(data.applications.slice(-2)[0].amount, data.applications.slice(-2)[1].amount))
     setexcellenceStats(findDifference(data.participants.slice(-2)[0].amount, data.participants.slice(-2)[1].amount))
+    }
   }, [data])
 
   const [showApplications, setShowApplications] = useState(false)
 
-  return (
+  return ( data ?
     <>
     <div className='layout'>
       <Header text = 'ВУЗы' subtext='Перечень ВУЗов, участвующих в проекте “Кампус”'/>
@@ -48,7 +50,7 @@ const Schools = ({data}) => {
     </div>
     <Navbar page='schools'/>
     </>
-  )
+  : <></>)
 }
 
 export default Schools
