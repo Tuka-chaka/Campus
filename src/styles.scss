@@ -41,6 +41,7 @@ body {
 h1 {
   font-size: 32px;
   color: $text_primary;
+  font-weight: 800;
 }
 
 h3 {
@@ -388,6 +389,9 @@ h3 {
     .centered {
       justify-content: center;
       gap: 5px;
+      @media screen and (orientation: landscape) {
+        width: 25%
+      }
 
       .difference {
         font-size: 10px;
