@@ -2,26 +2,28 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
+import sortMonths from '../../utils/MonthsSorter'
 
 const BarGraph = ({data, secondDataset = null}) => {
+  console.log(sortMonths(data))
   const [chartData, setChartData] = useState({ labels: [], datasets: [] })
 
     useEffect(() => {
-        setChartData(secondDataset? {labels: data.map((data) => data.month).slice(-10), datasets: [{
+        setChartData(secondDataset? {labels: sortMonths(data).map((data) => data.month).slice(-10), datasets: [{
           label: 'Веб',
-          data: data.map((data) => data.amount).slice(-10),
+          data: sortMonths(data).map((data) => data.amount).slice(-10),
           borderColor: '#F52D30',
           backgroundColor: '#F52D30',
         }, {
           label: 'Моб. приложение',
-          data: secondDataset.map((data) => data.amount).slice(-10),
+          data: sortMonths(secondDataset).map((data) => data.amount).slice(-10),
           borderColor: '#FE7D81',
           backgroundColor: '#FE7D81',
         }]}
         :
-        {labels: data.map((data) => data.month).slice(-10), datasets: [{
+        {labels: sortMonths(data).map((data) => data.month).slice(-10), datasets: [{
           label: 'Количество',
-          data: data.map((data) => data.amount).slice(-10),
+          data: sortMonths(data).map((data) => data.amount).slice(-10),
           borderColor: '#F52D30',
           backgroundColor: '#F52D30',
         }]})

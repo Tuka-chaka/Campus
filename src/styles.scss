@@ -288,6 +288,7 @@ h3 {
 
   h1{
     color: $button_regular;
+    font-weight: 800;
   }
 
   span {
@@ -334,6 +335,7 @@ h3 {
       font-size: 32px;
       color: $button_regular;
       text-wrap: nowrap;
+      font-weight: 800;
     }
 
     .sidetext {
