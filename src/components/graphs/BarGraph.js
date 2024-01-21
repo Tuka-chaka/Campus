@@ -5,7 +5,6 @@ import { Chart as ChartJS } from 'chart.js/auto'
 import sortMonths from '../../utils/MonthsSorter'
 
 const BarGraph = ({data, secondDataset = null}) => {
-  console.log(sortMonths(data))
   const [chartData, setChartData] = useState({ labels: [], datasets: [] })
 
     useEffect(() => {

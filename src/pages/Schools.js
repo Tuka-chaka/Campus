@@ -7,6 +7,7 @@ import BarGraph from '../components/graphs/BarGraph'
 import Navbar from '../components/Navbar'
 import findDifference from '../utils/DifferenceFinder'
 import formatThousands from '../utils/ThousandsFormatter'
+import sortMonths from '../utils/MonthsSorter'
 
 const Schools = ({data}) => {
 
@@ -15,8 +16,8 @@ const Schools = ({data}) => {
 
   useEffect(() => {
     if (data) {
-    setApplicantStats(findDifference(data.applications.slice(-2)[0].amount, data.applications.slice(-2)[1].amount))
-    setexcellenceStats(findDifference(data.participants.slice(-2)[0].amount, data.participants.slice(-2)[1].amount))
+    setApplicantStats(findDifference(sortMonths(data.applications).slice(-2)[0].amount, sortMonths(data.applications).slice(-2)[1].amount))
+    setexcellenceStats(findDifference(sortMonths(data.participants).slice(-2)[0].amount, sortMonths(data.participants).slice(-2)[1].amount))
     }
   }, [data])
 
@@ -31,13 +32,13 @@ const Schools = ({data}) => {
         {showApplications ? 
         <>
         <h3>Кол-во поданных заявлений на участие в программе “Кампус”</h3>
-        <GraphInfo suptext='всего' count={formatThousands(data.applications.slice(-1)[0].amount)} sidetext={`${applicantStats.percentage}% с прошлого месяца`} isGreater={applicantStats.isGreater} showArrow/>
+        <GraphInfo suptext='всего' count={formatThousands(sortMonths(data.applications).slice(-1)[0].amount)} sidetext={`${applicantStats.percentage}% с прошлого месяца`} isGreater={applicantStats.isGreater} showArrow/>
         <BarGraph data={data.applications}/>
         <SchoolsTable data={data.schools.sort((a,b) => b.applicants[1] - a.applicants[1])} text='Поданные заявления' type='applicants'/>
         </>
         :
         <><h3>Кол-во отличников программы “Кампус”</h3>
-        <GraphInfo suptext='всего' count={formatThousands(data.participants.slice(-1)[0].amount)} sidetext={`${excellenceStats.percentage}% с прошлого месяца`} isGreater={excellenceStats.isGreater} showArrow/>
+        <GraphInfo suptext='всего' count={formatThousands(sortMonths(data.participants).slice(-1)[0].amount)} sidetext={`${excellenceStats.percentage}% с прошлого месяца`} isGreater={excellenceStats.isGreater} showArrow/>
         <BarGraph data={data.participants}/>
         <SchoolsTable data={data.schools.sort((a,b) => b.students[1] - a.students[1])} text='Отличники программы' type='students'/>
         </>}

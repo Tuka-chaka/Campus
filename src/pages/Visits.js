@@ -7,6 +7,7 @@ import PagesBarChart from '../components/graphs/PagesBarChart'
 import Navbar from '../components/Navbar'
 import formatThousands from '../utils/ThousandsFormatter'
 import findDifference from '../utils/DifferenceFinder'
+import sortMonths from '../utils/MonthsSorter'
 
 const Visits = ({data}) => {
 
@@ -20,7 +21,7 @@ const Visits = ({data}) => {
     if (data) {
     setPagesStatistics(data.pages.sort((a, b) => b.time - a.time))
     setRegionsStatistics(data.regions.sort((a, b) => b.users[1] - a.users[1]))
-    setGraphData(data.attendanceMobile)
+    setGraphData(sortMonths(data.attendanceMobile))
     }
   }, [data])
 
@@ -31,13 +32,13 @@ const Visits = ({data}) => {
   useEffect(() => {
     if (data) {
     switch(deviceType) {
-      case 'моб. прил.': setGraphData(data.attendanceMobile) 
+      case 'моб. прил.': setGraphData(sortMonths(data.attendanceMobile)) 
       break
 
-      case 'веб': setGraphData(data.attendanceWeb) 
+      case 'веб': setGraphData(sortMonths(data.attendanceWeb)) 
       break
 
-      default: setGraphData(data.attendanceMobile.map((mobileItem) => ({
+      default: setGraphData(sortMonths(data.attendanceMobile).map((mobileItem) => ({
         month: mobileItem.month,
         amount: mobileItem.amount + data.attendanceWeb.find((element) => element.month === mobileItem.month).amount
     })))

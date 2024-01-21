@@ -1,5 +1,6 @@
 import React from 'react'
 import formatThousands from '../utils/ThousandsFormatter'
+import sortMonths from '../utils/MonthsSorter'
 
 const ProgramsPreview = ({data}) => {
   return (
@@ -18,7 +19,7 @@ const ProgramsPreview = ({data}) => {
         <span className='preview_header'>Стипендиальная программа фонда</span>
       </div>
       <div className='preview_segment'>
-        <span className='preview_statistics'><span className='highlighted'>{formatThousands(data.fundStipend.slice(-1)[0].amount)}</span> студентов получают данную стипендию</span>
+        <span className='preview_statistics'><span className='highlighted'>{formatThousands(sortMonths(data.fundStipend).slice(-1)[0].amount)}</span> студентов получают данную стипендию</span>
       </div>
     </div>
     <div className='preview_card'>
@@ -36,7 +37,7 @@ const ProgramsPreview = ({data}) => {
         <span className='preview_header'>Бонусная программа</span>
       </div>
       <div className='preview_segment'>
-        <span className='preview_statistics'><span className='highlighted'>{formatThousands(data.fundBonus.slice(-1)[0].amount)}</span> студентов учавствуют в программе лояльности</span>
+        <span className='preview_statistics'><span className='highlighted'>{formatThousands(sortMonths(data.fundBonus).slice(-1)[0].amount)}</span> студентов учавствуют в программе лояльности</span>
       </div>
     </div>
     <div className='preview_card'>
@@ -55,7 +56,7 @@ const ProgramsPreview = ({data}) => {
         <span className='preview_header'>Льготное кредитование</span>
       </div>
       <div className='preview_segment'>
-        <span className='preview_statistics'><span className='highlighted'>{formatThousands(data.fundPrivilege.slice(-1)[0].amount)}</span> студентов оформили льготное кредитование</span>
+        <span className='preview_statistics'><span className='highlighted'>{formatThousands(sortMonths(data.fundPrivilege).slice(-1)[0].amount)}</span> студентов оформили льготное кредитование</span>
       </div>
     </div>
     </div>
