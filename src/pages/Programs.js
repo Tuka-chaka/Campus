@@ -11,7 +11,7 @@ const Programs = ({data}) => {
   return (  data ? 
     <>
     <div className='layout'>
-      <Header text = 'Программы фонда' subtext='Обзор информации о различных программ, реализуемых фондом'/>
+      <Header text = 'Программы фонда' subtext='Обзор информации о различных программ, реализуемых фондом' data={data}/>
       <div className='card'>
         <h3>Стипендиальная программа фонда</h3>
         <GraphInfo suptext='всего' count={formatThousands(sortMonths(data.fundStipend).slice(-1)[0].amount)} sidetext='студентов получают данную стипендию'/>

@@ -26,7 +26,7 @@ const Schools = ({data}) => {
   return ( data ?
     <>
     <div className='layout'>
-      <Header text = 'ВУЗы' subtext='Перечень ВУЗов, участвующих в проекте “Кампус”'/>
+      <Header text = 'ВУЗы' subtext='Перечень ВУЗов, участвующих в проекте “Кампус”' data={data}/>
       <div className='card'>
         <Switch action={() => setShowApplications(!showApplications)} showApplications={showApplications}/>
         {showApplications ? 

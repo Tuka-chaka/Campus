@@ -48,7 +48,7 @@ const Visits = ({data}) => {
   return ( data && graphData.length?
     <>
     <div className='layout layout_centered'>
-      <Header text = 'Посещаемость' subtext='Информация о посещаемости и активности пользователей'/>
+      <Header text = 'Посещаемость' subtext='Информация о посещаемости и активности пользователей' data={data}/>
       <div className='card'>
         <div className='dropdown_container'>
           <Dropdown options={['моб. прил.', 'веб', 'всего']} value={deviceType} action={setDeviceType} width={'141px'}/>
