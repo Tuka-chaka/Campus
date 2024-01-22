@@ -18,7 +18,9 @@ function downloadData (data) {
     Уникальных посещений сайта${sortMonths(data.attendanceWeb).reduce((result, item) => result += `,${item.amount}`, '')}\n
     Уникальных посещений приложения${sortMonths(data.attendanceMobile).reduce((result, item) => result += `,${item.amount}`, '')}`;
 
-    const blob = new Blob([fileData], { type: "text/plain" });
+    const blob = new Blob(["\uFEFF" + fileData], {
+        type: 'text/csv; charset=utf-18'
+        });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.download = `Отчёт ${day}-${month}-${year}.csv`;
